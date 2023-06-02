@@ -26,14 +26,14 @@ apps:
       - optical-drive
       - removable-media
     common-id: org.gnome.gitlab.YaLTeR.VideoTrimmer
-    desktop: usr/share/applications/org.gnome.gitlab.YaLTeR.VideoTrimmer.desktop.in
+    desktop: usr/share/applications/org.gnome.gitlab.YaLTeR.VideoTrimmer.desktop
     
 parts:  
   videotrimmer:
     source: https://gitlab.gnome.org/YaLTeR/video-trimmer.git
     source-tag: v0.8.1 
     plugin: meson
-    parse-info: [usr/share/metainfo/org.gnome.gitlab.YaLTeR.VideoTrimmer.metainfo.xml.in]
+    parse-info: [usr/share/metainfo/org.gnome.gitlab.YaLTeR.VideoTrimmer.metainfo.xml]
     meson-parameters:
       - -Dprefix=/usr
     build-packages:
