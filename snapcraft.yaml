@@ -39,6 +39,9 @@ parts:
     build-packages:
       - cargo
       - build-essential
+      - python3-gi 
+      - gobject-introspection 
+      - gir1.2-gtk-4.0
     override-pull: |
       craftctl default
       craftctl set version=$(git describe --tags --abbrev=0 | cut -c 2-)
