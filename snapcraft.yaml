@@ -1,6 +1,6 @@
-name: video-trimmer
+name: videotrimmer
 base: core22
-adopt-info: video-trimmer
+adopt-info: videotrimmer
 grade: stable
 confinement: strict
 compression: lzo
@@ -10,13 +10,13 @@ architectures:
   - build-on: armhf
     
 slots:
-  video-trimmer:
+  videotrimmer:
     interface: dbus
     bus: session
     name: org.gnome.gitlab.YaLTeR.VideoTrimmer
   
 apps:
-  video-trimmer:
+  videotrimmer:
     command: usr/bin/video-trimmer
     extensions: [gnome]
     plugs:
@@ -29,8 +29,9 @@ apps:
     desktop: usr/share/applications/org.gnome.gitlab.YaLTeR.VideoTrimmer.desktop.in
     
 parts:  
-  video-trimmer:
+  videotrimmer:
     source: https://gitlab.gnome.org/YaLTeR/video-trimmer.git
+    source-tag: v0.8.1 
     plugin: meson
     parse-info: [usr/share/metainfo/org.gnome.gitlab.YaLTeR.VideoTrimmer.metainfo.xml.in]
     meson-parameters:
