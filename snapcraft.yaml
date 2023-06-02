@@ -1,0 +1,43 @@
+name: video-trimmer
+base: core22
+adopt-info: video-trimmer
+grade: stable
+confinement: strict
+compression: lzo
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+  - build-on: armhf
+    
+slots:
+  video-trimmer:
+    interface: dbus
+    bus: session
+    name: org.gnome.gitlab.YaLTeR.VideoTrimmer
+  
+apps:
+  video-trimmer:
+    command: usr/bin/video-trimmer
+    extensions: [gnome]
+    plugs:
+      - home
+      - audio-playback
+      - network
+      - optical-drive
+      - removable-media
+    common-id: org.gnome.gitlab.YaLTeR.VideoTrimmer
+    desktop: usr/share/applications/org.gnome.gitlab.YaLTeR.VideoTrimmer.desktop.in
+    
+parts:  
+  video-trimmer:
+    source: https://gitlab.gnome.org/YaLTeR/video-trimmer.git
+    plugin: meson
+    parse-info: [usr/share/metainfo/org.gnome.gitlab.YaLTeR.VideoTrimmer.metainfo.xml.in]
+    meson-parameters:
+      - -Dprefix=/usr
+    build-packages:
+      - cargo
+      - build-essential
+    override-pull: |
+      craftctl default
+      craftctl set version=$(git describe --tags --abbrev=0 | cut -c 2-)
