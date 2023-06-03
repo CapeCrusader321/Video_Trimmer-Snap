@@ -47,3 +47,6 @@ parts:
     override-pull: |
       craftctl default
       craftctl set version=$(git describe --tags --abbrev=0 | cut -c 2-)
+    stage-packages:
+      - blueprint-compiler
+      
