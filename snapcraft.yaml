@@ -32,7 +32,6 @@ parts:
   videotrimmer:
     source: https://gitlab.gnome.org/YaLTeR/video-trimmer.git
     #source-tag: v0.8.1
-    after: [blueprint]
     plugin: meson
     parse-info: [usr/share/metainfo/org.gnome.gitlab.YaLTeR.VideoTrimmer.metainfo.xml]
     meson-parameters:
@@ -51,6 +50,7 @@ parts:
     
   blueprint:
     source: https://gitlab.gnome.org/jwestman/blueprint-compiler.git
+    after: [videotrimmer]
     plugin: meson
     meson-parameters:
       - -Dprefix=/usr 
