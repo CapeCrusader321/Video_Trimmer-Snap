@@ -52,6 +52,8 @@ parts:
   blueprint:
     source: https://gitlab.gnome.org/jwestman/blueprint-compiler.git
     plugin: meson
+    meson-parameters:
+      - -Dprefix=/usr 
     build-packages:
       - build-essential 
     
