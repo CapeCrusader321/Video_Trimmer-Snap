@@ -54,8 +54,4 @@ parts:
     plugin: meson
     build-packages:
       - build-essential 
-    override-build: |
-      craftctl default
-      # WORKAROUND: Use python from search path, the path detected by meson doesn't exist when running the Snap
-      sed -e '1c#!/usr/bin/env python3' -i ${CRAFT_PART_INSTALL}/snap/videotrimmer/current/usr/bin/videotrimmer  
-      
+    
